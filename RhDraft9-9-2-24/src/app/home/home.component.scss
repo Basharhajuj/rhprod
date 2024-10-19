@@ -1,0 +1,271 @@
+html {
+  scroll-behavior: smooth; /* This enables smooth scrolling for section jumps */
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+.section {
+  height: 100vh; /* Full screen sections */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section-indicators {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust space between indicators */
+  z-index: 1000; /* Make sure this is higher than the Swiper */
+}
+
+.indicator {
+  width: 10px; /* Normal size of the dot */
+  height: 10px; /* Normal size of the dot */
+  border-radius: 5px;
+  background-color: #ccc; /* Inactive color */
+  transition: all 0.3s ease-in-out;
+}
+
+.indicator.active {
+  width: 10px; /* Extended width for the active section */
+  height: 40px; /* Keep the height the same for extended dot */
+  background-color: #fff; /* Active color */
+}
+
+.hero-section {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  max-width: 720px;
+  height: auto;
+}
+#projects-carousel {
+  height: 100vh;
+  background-color: #1e232e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.swiper.mySwiperProjects {
+  width: 80%;
+  height: 600px; /* Adjust the height for the projects carousel */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1f2a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-details {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+}
+
+.project-details h3 {
+  font-size: 1.7rem;
+}
+
+.project-details p {
+  font-size: 0.8rem;
+}
+
+
+.collection {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  background-color: #1e232e;
+}
+
+.carousel-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px; /* Reduced margin for better alignment */
+  color: #ffffff;
+  text-align: center;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 700px;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Adjust the width of each card */
+  height: 600px; /* Increase the height of the cards */
+  background-color: #1b1f2a;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  margin: 0 15px; /* Add a gap between the slides */
+}
+
+.swiper-slide-active {
+  transform: scale(1.1);  /* Emphasize the active slide */
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.swiper-pagination-bullet {
+  background-color: white;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+.text-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.text-content h3 {
+  font-size: 1.7rem;
+}
+
+.text-content p {
+  max-width: 22rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.btn {
+  background-color: #0099ff;
+  padding: 0.2rem;
+  border: 2px solid #0099ff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .mySwiper {
+    height: 350px;
+
+    .swiper-slide {
+      width: 230px;
+      height: 300px;
+    }
+
+    .text-content h3 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-title {
+    font-size: 2rem;
+  }
+
+  .mySwiper {
+    height: 300px;
+
+    .swiper-slide {
+      width: 200px;
+      height: 260px;
+    }
+
+    .text-content h3 {
+      font-size: 1.3rem;
+    }
+
+    .text-content p {
+      font-size: 0.7rem;
+    }
+
+    .btn {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-title {
+    font-size: 1.7rem;
+  }
+
+  .mySwiper {
+    height: 250px;
+
+    .swiper-slide {
+      width: 160px;
+      height: 220px;
+    }
+
+    .text-content h3 {
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      font-size: 0.7rem;
+    }
+  }
+  
+}

@@ -1,0 +1,26 @@
+.reels-details {
+    background: rgb(41, 40, 40); // Darker overlay with transparency
+  
+}
+
+.videos-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the video rows horizontally */
+    align-items: center; /* Center the videos vertically */
+    height: 100vh; /* Set full viewport height to vertically center */
+    gap: 20px; /* Space between video containers */
+    margin-top: 20px;
+  }
+  
+  .video-container {
+    flex: 1 1 calc(33.33% - 40px); /* Set each video to take up 1/3 of the container, considering the gap */
+    max-width: 300px; /* Optional: Limit the maximum width for better consistency */
+  }
+  
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }

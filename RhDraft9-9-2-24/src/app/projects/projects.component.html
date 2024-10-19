@@ -1,0 +1,9 @@
+<div class="projects-wrapper">
+    <div *ngFor="let project of projects" class="project-card" (click)="navigateToProject(project.link)">
+      <img [src]="project.imageUrl" alt="{{ project.title }}" />
+      <div class="project-info">
+        <div class="project-title">{{ project.title }}</div>
+      </div>
+    </div>
+  </div>
+  

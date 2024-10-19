@@ -1,0 +1,82 @@
+.services-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh; /* Full viewport height for the entire container */
+  width: 100%;
+  background-color: #000;
+}
+
+.service-section {
+  flex: 1; /* Equal division of space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-in-out;
+
+  /* Dark overlay */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 1; /* Make sure the overlay is below the button */
+  }
+
+  /* Ensure buttons stay above the overlay */
+  .service-button {
+    position: relative;
+    z-index: 2; /* Keep buttons above the dark overlay */
+    background-color: rgba(255, 251, 251, 0.8);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .service-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+  }
+
+  &.service-vfx {
+    background-image: url('/assets/VFX1.png'); /* Replace with actual image path */
+  }
+
+  &.service-reels {
+    background-image: url('/assets/RhStudioRami.jpg'); /* Replace with actual image path */
+  }
+
+  &.service-projects {
+    background-image: url('/assets/projects.jpg'); /* Replace with actual image path */
+  }
+
+  &.service-wedding {
+    background-image: url('/assets/wedding.jpg'); /* Replace with actual image path */
+  }
+}
+
+/* Mobile responsiveness: Stack sections vertically */
+@media (max-width: 768px) {
+  .services-container {
+    display: block; /* Stack sections vertically */
+    height: auto; /* Let each section define its height */
+  }
+
+  .service-section {
+    height: 100vh; /* Each section takes up full viewport height on mobile */
+    width: 100%; /* Full width on mobile */
+  }
+
+  .service-button {
+    font-size: 2.5rem; /* Adjust font size for mobile */
+  }
+}

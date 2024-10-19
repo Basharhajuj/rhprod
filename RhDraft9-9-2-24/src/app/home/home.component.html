@@ -1,0 +1,110 @@
+<div class="section-indicators">
+  <span class="indicator" [class.active]="currentSectionIndex === 0"></span>
+  <span class="indicator" [class.active]="currentSectionIndex === 1"></span>
+  <span class="indicator" [class.active]="currentSectionIndex === 2"></span>
+  <!-- Add more indicators for more sections -->
+</div>
+
+<section id="section1" class="hero-section">
+  <video autoplay muted loop id="myVideo">
+    Your browser does not support HTML5 video.
+    <source src="https://res.cloudinary.com/dxfpomi5t/video/upload/v1729294187/insp4_trzybo.mp4" type="video/mp4">
+  </video>
+  <div class="content">
+    <img src="/assets/logo1.png" alt="Logo" class="logo">
+  </div>
+</section>
+
+<section id="projects-carousel">
+  <!-- Title for the Projects carousel -->
+  <h2 class="carousel-title">Our Projects</h2>
+  
+  <!-- Swiper Container for Projects -->
+  <div class="swiper mySwiperProjects" #swiperProjects>
+    <div class="swiper-wrapper">
+      <!-- Repeat this block for each project slide -->
+      <div class="swiper-slide">
+        <img src="assets/projectRef.png" alt="Project 1">
+        <div class="project-details">
+          <h3>Project Title 1</h3>
+          <p>Brief description of the project goes here...</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/projectRef2.png" alt="Project 2">
+        <div class="project-details">
+          <h3>Project Title 2</h3>
+          <p>Brief description of the project goes here...</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/project3.jpg" alt="Project 3">
+        <div class="project-details">
+          <h3>Project Title 3</h3>
+          <p>Brief description of the project goes here...</p>
+        </div>
+      </div>
+    </div>
+    <!-- Add Pagination and Navigation for Projects carousel -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+
+<section id="section2" class="collection">
+  <h2 class="carousel-title">Meet our team</h2>
+  
+  <div class="swiper mySwiper" #swiperRef>
+    <div class="swiper-wrapper">
+      <div class="content swiper-slide">
+        <img src="assets/adham.jpg" alt="Slide 1">
+        <div class="text-content">
+          <h3>Photography</h3>
+          <p>Lorem ipsum dolor sit amet...</p>
+          <button class="btn">Read more</button>
+        </div>
+      </div>
+      <!-- Repeat content for more slides -->
+      <div class="content swiper-slide">
+        <img src="assets/anas.jpg" alt="Slide 1">
+        <div class="text-content">
+          <h3>Photography</h3>
+          <p>Lorem ipsum dolor sit amet...</p>
+          <button class="btn">Read more</button>
+        </div>
+      </div>
+      <div class="content swiper-slide">
+        <img src="assets/dod1.jpg" alt="Slide 1">
+        <div class="text-content">
+          <h3>Photography</h3>
+          <p>Lorem ipsum dolor sit amet...</p>
+          <button class="btn">Read more</button>
+        </div>
+      </div>
+      <div class="content swiper-slide">
+        <img src="assets/dod2.jpg" alt="Slide 1">
+        <div class="text-content">
+          <h3>Photography</h3>
+          <p>Lorem ipsum dolor sit amet...</p>
+          <button class="btn">Read more</button>
+        </div>
+      </div>
+      <div class="content swiper-slide">
+        <img src="assets/dod3.jpg" alt="Slide 1">
+        <div class="text-content">
+          <h3>Photography</h3>
+          <p>Lorem ipsum dolor sit amet...</p>
+          <button class="btn">Read more</button>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- More sections with buttons to scroll -->
+<section id="section3">  
+  
+</section>

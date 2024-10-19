@@ -1,0 +1,65 @@
+.projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    gap: 40px; /* Space between project cards */
+    padding-top: 90px;
+    background: black;
+  }
+  
+  .project-card {
+    width: 90%; /* Reduce width to fit the screen without over-expanding */
+    max-width: 1200px;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+
+  
+    
+  
+    img {
+        width: 100%;
+        height: auto; /* Maintain original aspect ratio */
+        max-height: 60vh; /* Reduce max height for better visual width */
+        object-fit: cover; /* Make the image cover the width without losing important parts */
+      }
+  
+      .project-info {
+        position: absolute; /* Overlay the image */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center the content */
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better visibility */
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        width: calc(100% - 30px); /* Slightly smaller than card width to add spacing */
+    }
+  }
+  
+  
+  /* Responsive Design Adjustments */
+  @media (max-width: 768px) {
+    .projects-wrapper {
+      padding: 20px;
+      gap: 20px;
+    }
+  
+    .project-card {
+      img {
+        height: 60vh; /* Adjust image height for mobile for better visibility */
+      }
+  
+      .project-info {
+        bottom: 15px;
+        left: 15px;
+        font-size: 1rem;
+      }
+    }
+  }
+  

@@ -1,0 +1,263 @@
+
+.menu {
+  background-color: transparent;
+  border: none;
+  margin-right: 10.4%;
+  margin-bottom: 40px;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+  width: 40px;
+  height: 40px;  
+  z-index: 1000;
+  
+}
+
+.line {
+  fill: none;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), 
+   stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+
+.menu.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+.menu.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+}
+
+.menu.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Hidden by default */
+  width: 33.33vw; /* 1/3 of the viewport width */
+  height: 100%;
+  background: rgba(36, 34, 34, 0.2); /* Semi-transparent with blur */
+  backdrop-filter: blur(15px);
+  transition: left 0.7s ease; /* Slower transition for the sidebar itself */
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.sidebar.show {
+  left: 0; /* Slide the sidebar into view */
+}
+
+.sidebar-content {
+  text-align: center;
+  width: 100%;
+}
+
+/* Animation for list items */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  opacity: 0;
+  transform: translateX(-70px); /* Start from farther left */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Slower animation */
+}
+
+.sidebar.show ul li {
+  opacity: 1;
+  transform: translateX(0); /* Slide into place */
+}
+.sidebar ul li.hidden {
+  opacity: 0;
+  transform: translateX(-70px); /* Slide out to the left */
+}
+
+
+/* Add a delay for each item to create a staggered effect */
+.sidebar ul li:nth-child(1) {
+  transition-delay: 0.4s; /* More delay */
+}
+
+.sidebar ul li:nth-child(2) {
+  transition-delay: 0.6s;
+}
+
+.sidebar ul li:nth-child(3) {
+  transition-delay: 0.8s;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem; /* Increase font size for visibility */
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #ccc;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem; /* Increase font size for visibility */
+  transition: color 0.3s ease;
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem; /* Increase font size for visibility */
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #ccc;
+}
+/* Show the sidebar when isSidebarVisible is true */
+.sidebar.show {
+  left: 0; /* Slide the sidebar into view */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.6s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 100;
+  border-bottom: none;
+  
+
+  &.white-navbar {
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent with blur */
+    backdrop-filter: blur(15px);
+    height: 4%;
+    
+    .line {
+      stroke: black; /* Adjust line colors for white navbar */
+    }
+
+    .navbar-links a {
+      color: black;
+    }
+  }
+}
+.navbar.white-navbar ~ .navbar-underline {
+  display: none; /* Hide the underline */
+}
+
+/* White links styling for the navbar */
+.white-links {
+  color: black !important;
+}
+/* Adjust the size of your logo */
+.navbar-logo img {
+  height: 50px;
+  width: auto;
+  margin-top: 20px;
+}
+
+.navbar-links {
+  position: relative;
+  z-index: 200; /* Keep it above the navbar */
+  margin-left: 8.91%;
+}
+
+
+/* Change color on hover */
+.navbar-links a:hover {
+  color: #ccc;
+}
+
+/* Underline beneath navbar */
+.navbar-underline {
+  flex-basis: 100%;
+  left: 10%;
+  right: 10%;
+  height: 0.6px; /* Thin line */
+  background-color: #dddddd71;
+  box-shadow: rgba(34, 34, 34, 0.8) 0 0 90px 90px;
+  /* Transparent white line */
+  position: fixed;
+  top: 120px; /* Offset from navbar */
+  z-index: 50; /* Make sure it's under the navbar */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-links a {
+    font-size: 1rem;
+  }
+
+  .navbar-logo img {
+    height: 40px;
+  }
+
+  .navbar-links {
+    margin-right: 0%;
+  }
+
+  .menu {
+    z-index: 1000; /* Keep the button above the sidebar */
+     /* Ensure it's fixed */
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position */
+  }
+
+  .navbar-underline {
+    left: 0%;
+    right: 0%;
+  }
+
+  .sidebar {
+    width: 75vw; /* Adjust this value to ensure the button remains visible */
+    z-index: 999; /* Keep lower than the button's z-index */
+  }
+
+  .sidebar-content {
+    margin-left: 0;
+  }
+}

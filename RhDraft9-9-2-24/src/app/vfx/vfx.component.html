@@ -1,0 +1,22 @@
+<section id="section" class="banner-section">
+  <div class="content">
+    <h1 class="title">VFX Package</h1>
+    <p class="description">
+      Discover the perfect package for creating high-quality reels to elevate your brand’s social media presence.
+    </p>
+  </div>
+</section>
+
+<section id="section1" class="category-section">
+  <div class="vfx-container">
+    <div class="vfx-card" *ngFor="let vfx of vfxItems">
+      <video 
+        [src]="vfx.video | safeUrl" 
+        [poster]="vfx.poster | safeUrl" 
+        controls 
+        class="vfx-video">
+      </video>
+      <h3>{{ vfx.title }}</h3>
+    </div>
+  </div>
+</section>

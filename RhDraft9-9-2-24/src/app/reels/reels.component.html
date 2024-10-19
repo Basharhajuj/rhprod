@@ -1,0 +1,28 @@
+<section class="banner-section">
+  <div class="content">
+    <h1 class="title">Reels Package</h1>
+    <p class="description">
+      Discover the perfect package for creating high-quality reels to elevate your brand’s social media presence.
+    </p>
+  </div>
+</section>
+
+<section class="category-section" *ngFor="let category of categories; let i = index" [ngStyle]="{'background-image': 'url(' + category.background + ')'}">
+  <div class="reel-container" [class.reverse]="i % 2 !== 0">
+    <div class="reel-media">
+      <video 
+        [src]="category.video | safeUrl" 
+        [poster]="category.poster | safeUrl" 
+        controls 
+        class="reel-video">
+      </video>
+    </div>
+    <div class="reel-details">
+      <h2>{{ category.title }}</h2>
+      <p>{{ category.description }}</p>
+      <div class="show-more-container">
+        <a [routerLink]="['/reels', category.category]" class="show-more-button">Show More</a>
+      </div>
+    </div>
+  </div>
+</section>

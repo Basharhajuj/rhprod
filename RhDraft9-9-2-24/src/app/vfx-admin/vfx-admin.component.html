@@ -1,0 +1,33 @@
+<div class="vfx-admin-container">
+  <!-- Add Video Section -->
+  <div class="add-video-section">
+    <h2>Add VFX Video</h2>
+    <form (ngSubmit)="addVideo()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" [(ngModel)]="title" name="title" placeholder="Enter title" required>
+      </div>
+      <div class="form-group">
+        <label for="video">Video File</label>
+        <input type="file" id="video" (change)="onVideoSelected($event, 'video')" required>
+      </div>
+      <div class="form-group">
+        <label for="poster">Poster Image</label>
+        <input type="file" id="poster" (change)="onVideoSelected($event, 'poster')" required>
+      </div>
+      <button type="submit" class="submit-btn">Add Video</button>
+    </form>
+  </div>
+
+  <!-- Manage Videos Section -->
+  <div class="manage-videos-section">
+    <h2>Manage VFX Videos</h2>
+    <div class="vfx-grid">
+      <div *ngFor="let vfx of vfxItems" class="vfx-item">
+        <h3>{{ vfx.title }}</h3>
+        <video [src]="vfx.video" [poster]="vfx.poster" controls class="vfx-video"></video>
+        <button (click)="deleteVideo(vfx._id)" class="delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

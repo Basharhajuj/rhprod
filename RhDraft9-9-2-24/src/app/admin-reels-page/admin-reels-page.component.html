@@ -1,0 +1,135 @@
+<div class="admin-container">
+  <h1>Reels Page Management</h1>
+
+  <!-- Loop through each category -->
+  <div *ngFor="let category of categories" class="category-section">
+    <h2>{{ category.name }}</h2>
+
+    <!-- Display Reels -->
+    <div *ngIf="category.reel; else noReel" class="reel-info">
+      <div class="media-container">
+        <div class="poster">
+          <img [src]="category.reel.poster" alt="Reel Poster">
+        </div>
+        <div class="video">
+          <iframe [src]="category.reel.video | safeUrl" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="reel-details">
+        <p><strong>Title:</strong> {{ category.reel.title }}</p>
+        <p><strong>Description:</strong> {{ category.reel.description }}</p>
+        <p><strong>Background:</strong> <a href="{{ category.reel.background }}" target="_blank">View Background</a></p>
+      </div>
+
+      <div class="actions">
+        <button class="edit-btn" (click)="openEditModal(category)">Edit</button>
+        <button class="delete-btn" (click)="deleteReel(category.name)">Delete</button>
+        <button class="manage-details-btn" (click)="openManageDetailsModal(category)">Manage Details</button>
+      </div>
+    </div>
+
+    <!-- No Reel available -->
+    <ng-template #noReel>
+      <div class="no-reel">No reel available for this category.</div>
+      <button class="add-btn" (click)="openAddReelModal(category)">Add Reel</button>
+    </ng-template>
+  </div>
+
+  <!-- Add Reel Modal -->
+  <div *ngIf="isAdding" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeAddReelModal()">&times;</span>
+      <h2>Add Reel</h2>
+      <form (ngSubmit)="addReel()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Enter title" [(ngModel)]="newReel.title" name="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Enter description" [(ngModel)]="newReel.description" name="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="background">Background URL</label>
+          <input type="text" id="background" placeholder="Enter background URL" [(ngModel)]="newReel.background" name="background" required>
+        </div>
+
+        <div class="form-group">
+          <label for="video">Video File</label>
+          <input type="file" id="video" (change)="onVideoSelected($event)" name="video">
+        </div>
+
+        <div class="form-group">
+          <label for="poster">Poster File</label>
+          <input type="file" id="poster" (change)="onPosterSelected($event)" name="poster">
+        </div>
+
+        <button type="submit" class="submit-btn">Add Reel</button>
+        <button type="button" class="cancel-btn" (click)="closeAddReelModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Reel Modal -->
+  <div *ngIf="isEditing" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeEditModal()">&times;</span>
+      <h2>Edit Reel</h2>
+      <form (ngSubmit)="updateReel()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Enter title" [(ngModel)]="newReel.title" name="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Enter description" [(ngModel)]="newReel.description" name="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="background">Background URL</label>
+          <input type="text" id="background" placeholder="Enter background URL" [(ngModel)]="newReel.background" name="background" required>
+        </div>
+
+        <div class="form-group">
+          <label for="video">Video File</label>
+          <input type="file" id="video" (change)="onVideoSelected($event)" name="video">
+        </div>
+
+        <div class="form-group">
+          <label for="poster">Poster File</label>
+          <input type="file" id="poster" (change)="onPosterSelected($event)" name="poster">
+        </div>
+
+        <button type="submit" class="submit-btn">Update Reel</button>
+        <button type="button" class="cancel-btn" (click)="closeEditModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="isManagingDetails" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeManageDetailsModal()">&times;</span>
+      <h2>Manage Reel Details for {{ currentCategory?.name }}</h2>
+
+      <!-- Video List -->
+      <div *ngFor="let video of currentCategory?.detailsVideos; let i = index" class="video-detail">
+        <p>Video {{ i + 1 }}:</p>
+        <video controls>
+          <source [src]="video" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <button class="delete-btn" (click)="deleteVideoDetail(i)">Delete</button>
+      </div>
+
+      <!-- Add New Video -->
+      <div class="form-group">
+        <label for="newVideo">Add New Video</label>
+        <input type="file" id="newVideo" (change)="onNewVideoSelected($event)" name="newVideo">
+        <button class="submit-btn" (click)="addVideoDetail()">Add Video</button>
+      </div>
+    </div>
+  </div>
+</div>

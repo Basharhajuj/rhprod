@@ -1,0 +1,121 @@
+
+.banner-section {
+    position: relative;
+    height: 100vh; /* Full viewport height for the entire container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure the video stays within the section */
+    background-color: black;
+  }
+  
+  /* Background video styling */
+  .banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire section */
+    z-index: 0; /* Place the video behind the content */
+  }
+  .content {
+    text-align: center;
+    padding: 20px;
+  }
+  .title {
+    color: white;
+    font-size: 2.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeSlideUp 1s ease-in-out forwards;
+  }
+  
+  /* Paragraph animation */
+  .description {
+    font-size: 1.2rem;
+    animation-delay: 0.5s;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeSlideUp 1.5s ease-in-out forwards;
+    color: white;
+  }
+
+.vfx-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black; /* Black background */
+  }
+  
+  .vfx-card {
+    width: 360px;
+    height: 640px;
+    margin: 40px;
+    background-color: #222; /* Dark color for the card background */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  
+  .vfx-video {
+    width: 100%;
+    height: 80%;
+    object-fit: cover; /* Ensures the video fits nicely inside the card */
+  }
+  
+  h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 20px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .vfx-container {
+        flex-direction: column; /* Stack the cards vertically */
+        height: auto; /* Adjust the height to auto for better responsiveness */
+        padding: 20px;
+    }
+
+    .vfx-card {
+        width: 320px;
+        height: 520px; /* Adjust size for smaller screens */
+        margin: 15px 0; /* Reduce spacing between cards */
+    }
+
+    h3 {
+        font-size: 1.1rem; /* Slightly smaller text */
+    }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+    .vfx-container {
+        padding: 10px;
+        
+    }
+
+    .vfx-card {
+        width: 380px;
+        height: 640px; /* Adjust for smaller mobile view */
+        margin: 10px 0;
+    }
+
+    .vfx-image {
+        height: 70%; /* Reduce the image height on mobile */
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+}
+  @keyframes fadeSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
